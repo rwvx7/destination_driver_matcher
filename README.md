@@ -7,7 +7,7 @@ Suitability score is calculated based on the following:
 - If the length of the shipment's destination street name shares any common factors (besides 1) with the length of the driver’s name, the SS is increased by 50% above the base SS.
 
 # Table of Content
-- [Application Background](#application-background)
+- [Application Overview](#application-overview)
 - [Ubuntu cheatsheet](#ubuntu-cheatsheet)
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
@@ -15,8 +15,13 @@ Suitability score is calculated based on the following:
 - [Summary](#summary)
 - [Useful Information](#useful-information)
 
-## Application Background
-To be Added
+## Application Overview
+The application does the following:
+1. Reads the shipping destinations file.
+2. Reads the drivers file.
+3. Calculate the suitability score for each shipping destination and driver combination.
+4. To find the best shipping destination to driver pairs that maximize total suitability score, what needs to be solved is the [Linear Sum Assignment Problem](#linear-sum-assignment-problem). With the results from step 3, the application uses the scipy implementation of the Hungarian Algorithm to find the maximum suitability score and the best matches.
+5. Print results to screen.
 
 ## Ubuntu Cheatsheet
 If you are running Ubuntu (preferably 20.04 or later), The following is a quick run down of commands and scripts to complete the prerequisites, setup, and usage steps. The scripts have not been tested on other operating systems.
@@ -27,7 +32,7 @@ If you are running Ubuntu (preferably 20.04 or later), The following is a quick 
 5. Run:
 ```
 $ source acme_env/bin/activate
-cd destination_driver_matcher
+$ cd destination_driver_matcher
 $ ./run_application.sh
 ```
 to run the application
@@ -65,10 +70,13 @@ To create a virtual environment, run the following while in the project root dir
 `$ virtualenv acme_env`
 
 A folder named `acme_env` will be created in the current directory and python executables related to that python virtual environment will be stored there.
+
 To activate the virtualenv, run the following:
 `$ source acme_env/bin/activate`
 
-After the virtualenv is activated, packages installed using `pip` will only be available within that virtualenv. Now we can install the required packages by running:
+After the virtualenv is activated, packages installed using `pip` will only be available within that virtualenv.
+
+Now we can install the required packages by running:
 `$ pip install -r requirements.txt`
 
 To deactivate current virtualenv, run the following:
@@ -113,9 +121,12 @@ Summary of steps to take:
 
 
 ## Useful Information
+### Linear Sum Assignment Problem
+- https://en.wikipedia.org/wiki/Hungarian_algorithm
+- https://brilliant.org/wiki/hungarian-matching/
+- https://brilliant.org/discussions/thread/intuition-behind-the-hungarian-algorithm/
 ### Python virtual environments
 - https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe
 - https://python-docs.readthedocs.io/en/latest/dev/virtualenvs.html
 - https://pypi.org/project/virtualenvwrapper/
 - https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#using_django_inside_a_python_virtual_environment
-
