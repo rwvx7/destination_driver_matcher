@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# virtualenv folder 'acme_env'
+acme_env/
+
+# .vscode data
+.vscode/
