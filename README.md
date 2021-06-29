@@ -23,15 +23,21 @@ If you are running Ubuntu (preferably 20.04 or later), The following is a quick 
 1. `$ sudo apt install python3-pip`
 2. `$ pip3 install virtualenv`
 3. With the project root directory as the current working directory, run the system_setup.sh script: `$ ./system_setup.sh`
-4. Run `$ ./run_application.sh` to run the application
-5. Run `$ ./run_tests.sh` to run the unit tests
+4. Run `$ ./run_tests.sh` to run the unit tests
+5. Run:
+```
+$ source acme_env/bin/activate
+cd destination_driver_matcher
+$ ./run_application.sh
+```
+to run the application
 
 ## Prerequisites
 Linux, MacOS, or Windows with the following installed:
 - Python3
 - Python3-pip
 
-Application was tested on Windows 10 WSL2 Ubuntu-20.04 with Python 3.8.5
+Application was tested on Windows 10 WSL2 running Ubuntu-20.04 with Python 3.8.5
 
 ### Ubuntu
 Python3 should already be installed by default. Run the following command in the bash terminal to confirm:
@@ -58,7 +64,7 @@ To install virtualenv, run the following command:
 To create a virtual environment, run the following while in the project root directory:
 `$ virtualenv acme_env`
 
-A folder named 'acme_env' will be created in the current directory and python executables related to that python virtual environment will be stored there.
+A folder named `acme_env` will be created in the current directory and python executables related to that python virtual environment will be stored there.
 To activate the virtualenv, run the following:
 `$ source acme_env/bin/activate`
 
@@ -70,10 +76,11 @@ To deactivate current virtualenv, run the following:
 
 ## Usage
 A few scripts have been provided to make running the application easier:
-- `$ ./run_application.sh` runs the application
-- `$ ./run_tests.sh` runs the unit tests associated with the application
+- `$ ./run_tests.sh` runs the unit tests associated with the application.
+- `$ ./run_integration_tests.sh` runs the integration test for the application.
+- `$ ./run_accuracy_tests.sh` runs the accuracy tests to check if output results are the same with brute force approach.
 
-To run the application manually, Do the following:
+To run the application, do the following:
 1. Activate virtualenv: `$ source acme_env/bin/activate`
 2. To run the unit tests: `$ PYTHONPATH=./destination_driver_matcher pytest`
 3. To run the application:
@@ -82,6 +89,17 @@ $ cd destination_driver_matcher
 $ python main.py
 ```
 4. Deactivate virtualenv: `$ deactivate`
+
+Running the application via command line arguments is also available:
+- `-h, --help`: shows help message
+- `--destinations <filename>`: File containing list of destinations. This argument is ignored unless drivers file is also provided via --drivers
+- `--drivers <filename>`: File containing list of drivers. This argument is ignored unless destinations file is also provided via --destinations
+- `--log <log_level`: Sets log level. Must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL. Default is WARNING
+- `-b, --brute-force`: Tells application to use brute force algorithm instead
+
+For example
+`python main.py --destination ../data/destinations4.txt --drivers ../data/drivers4.txt --log INFO`
+tells the application to use the destinations file `../data/destinations4.txt`, drivers file `../data/drivers4.txt`, and sets the logging level to INFO.
 
 ## Summary
 Summary of steps to take:
