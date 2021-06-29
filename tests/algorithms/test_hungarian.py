@@ -4,7 +4,7 @@ from pytest_mock import MockerFixture
 import pytest
 
 def test_hungarian_algorithm():
-    """Test if Hungarian can run"""
+    """Test if Hungarian algorithm can run correctly"""
     cost_matrix = [[8, 15.75, 8], [8, 6.75, 8], [12, 3, 12]]
 
     hungarian = Hungarian(cost_matrix)
