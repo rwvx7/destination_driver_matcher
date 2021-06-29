@@ -1,0 +1,11 @@
+Enter filename for shipping destinations: Enter filename for drivers: 
+using files:
+shipping destinations: ../tests/data/01_input_destinations.txt
+drivers:               ../tests/data/01_input_drivers.txt
+
+----- Results -----
+Total suitability score: 34.5
+Destination                                                        Driver
+123 Fake Street, Springfield, SP 99999                           - Franz Liszt
+20 Providence Place, Providence, RI 02903                        - Miyamoto Musashi
+747 Broadway, Seattle, WA 98122                                  - Bucky Barnes

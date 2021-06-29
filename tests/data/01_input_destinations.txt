@@ -1,0 +1,3 @@
+123 Fake Street, Springfield, SP 99999
+20 Providence Place, Providence, RI 02903
+747 Broadway, Seattle, WA 98122
