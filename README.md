@@ -23,6 +23,8 @@ The application does the following:
 4. To find the best shipping destination to driver pairs that maximize total suitability score, what needs to be solved is the [Linear Sum Assignment Problem](#linear-sum-assignment-problem). With the results from step 3, the application uses the scipy implementation of the Hungarian Algorithm to find the maximum suitability score and the best matches.
 5. Print results to screen.
 
+This application was tested on Windows 10 WSL2 running Ubuntu-20.04 with Python 3.8.5. However, it should work on Windows 10 natively and MacOS as well.
+
 ## Ubuntu Cheatsheet
 If you are running Ubuntu (preferably 20.04 or later), The following is a quick run down of commands and scripts to complete the prerequisites, setup, and usage steps. The scripts have not been tested on other operating systems.
 1. `$ sudo apt install python3-pip`
@@ -42,7 +44,7 @@ Linux, MacOS, or Windows with the following installed:
 - Python3
 - Python3-pip
 
-Application was tested on Windows 10 WSL2 running Ubuntu-20.04 with Python 3.8.5
+Mozilla has a guide for setting up a Django development environment, the part about [setting up Python3](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#installing_python_3) can be applied here to install Python3 and pip. More guides are available [here](#python3-guides).
 
 ### Ubuntu
 Python3 should already be installed by default. Run the following command in the bash terminal to confirm:
@@ -74,7 +76,7 @@ A folder named `acme_env` will be created in the current directory and python ex
 To activate the virtualenv, run the following:
 `$ source acme_env/bin/activate`
 
-After the virtualenv is activated, packages installed using `pip` will only be available within that virtualenv.
+When virtualenv is active, packages installed using `pip` will only be available within that virtualenv.
 
 Now we can install the required packages by running:
 `$ pip install -r requirements.txt`
@@ -121,6 +123,9 @@ Summary of steps to take:
 
 
 ## Useful Information
+### Python3 Guides
+- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#installing_python_3
+- https://realpython.com/installing-python/
 ### Linear Sum Assignment Problem
 - https://en.wikipedia.org/wiki/Hungarian_algorithm
 - https://brilliant.org/wiki/hungarian-matching/
