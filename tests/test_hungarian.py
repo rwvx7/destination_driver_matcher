@@ -1,5 +1,5 @@
 
-from destination_driver_matcher.hungarian import Hungarian
+from destination_driver_matcher.algorithms.hungarian import Hungarian
 from pytest_mock import MockerFixture
 import pytest
 

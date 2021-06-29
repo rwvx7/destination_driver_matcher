@@ -1,6 +1,7 @@
 
+from algorithms.brute_force import BruteForce
+from algorithms.hungarian import Hungarian
 from file_reader import FileReader
-from hungarian import Hungarian
 from line_parsers.address_parser import AddressParser
 from line_parsers.driver_parser import DriverParser
 import logging
@@ -36,6 +37,8 @@ def run(filename_destinations, filename_drivers):
         logging.info("Finding best matches between drivers and destinations")
         hungarian = Hungarian(cost_matrix)
         row_ind, col_ind, sum = hungarian.execute()
+        # brute_force = BruteForce(cost_matrix)
+        # row_ind, col_ind, sum = brute_force.execute()
 
         logging.info("Preparing results...")
         result_outputer = ResultOutputer(destinations, drivers)

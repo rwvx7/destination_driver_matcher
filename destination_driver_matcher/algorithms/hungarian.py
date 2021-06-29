@@ -1,6 +1,4 @@
 
-
-
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 from typing import List
@@ -20,6 +18,3 @@ class Hungarian:
         row_ind, col_ind = linear_sum_assignment(cost_matrix=cost_matrix, maximize=True)
         sum = cost_matrix[row_ind, col_ind].sum()
         return row_ind, col_ind, sum
-
-
-
