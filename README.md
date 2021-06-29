@@ -10,7 +10,7 @@ Suitability score is calculated based on the following:
 - [Application Background](#application-background)
 - [Ubuntu cheatsheet](#ubuntu-cheatsheet)
 - [Prerequisites](#prerequisites)
-- [Setup](#set)
+- [Setup](#setup)
 - [Usage](#usage)
 - [Summary](#summary)
 - [Useful Information](#useful-information)
@@ -90,8 +90,8 @@ Summary of steps to take:
 
 ## Useful Information
 ### Python virtual environments
-https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe
-https://python-docs.readthedocs.io/en/latest/dev/virtualenvs.html
-https://pypi.org/project/virtualenvwrapper/
-https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#using_django_inside_a_python_virtual_environment
+- https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe
+- https://python-docs.readthedocs.io/en/latest/dev/virtualenvs.html
+- https://pypi.org/project/virtualenvwrapper/
+- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#using_django_inside_a_python_virtual_environment
 
