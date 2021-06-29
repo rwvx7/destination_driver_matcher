@@ -29,8 +29,8 @@ def main():
 
     filename_destinations = args.destinations
     filename_drivers = args.drivers
-    filename_destinations = "../data/destinations3.txt"
-    filename_drivers = "../data/drivers3.txt"
+    # filename_destinations = "../data/destinations3.txt"
+    # filename_drivers = "../data/drivers3.txt"
 
     if filename_destinations == None or filename_drivers == None:
         filename_destinations = input("Enter filename for shipping destinations: ")
