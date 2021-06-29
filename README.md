@@ -7,13 +7,13 @@ Suitability score is calculated based on the following:
 - If the length of the shipment's destination street name shares any common factors (besides 1) with the length of the driver’s name, the SS is increased by 50% above the base SS.
 
 # Table of Content
-- [Application Background](##application-background)
-- [Ubuntu cheatsheet](##ubuntu-cheatsheet)
-- [Prerequisites](##prerequisites)
-- [Setup](##set)
-- [Usage](##usage)
-- [Summary](##summary)
-- [Useful Information](##useful-information)
+- [Application Background](#application-background)
+- [Ubuntu cheatsheet](#ubuntu-cheatsheet)
+- [Prerequisites](#prerequisites)
+- [Setup](#set)
+- [Usage](#usage)
+- [Summary](#summary)
+- [Useful Information](#useful-information)
 
 ## Application Background
 To be Added
