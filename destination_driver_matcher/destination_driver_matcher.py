@@ -35,6 +35,7 @@ def run(filename_destinations, filename_drivers, is_brute_force = False):
         logging.debug(f"cost matrix: {cost_matrix}")
 
         logging.info("Finding best matches between drivers and destinations")
+        logging.info(f"Use brute force: {is_brute_force}")
         algorithm = BruteForce(cost_matrix) if is_brute_force else Hungarian(cost_matrix)
         row_ind, col_ind, sum = algorithm.execute()
 

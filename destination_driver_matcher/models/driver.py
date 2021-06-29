@@ -1,6 +1,12 @@
 
 class Driver:
+    """Class to represent a driver."""
     def __init__(self, data = {}):
+        """
+        params: data: dict()
+        required to have the following keys:
+        'name'
+        """
         if not isinstance(data, dict):
             raise ValueError("'data' provided is not a string")
         self._name = data.get('name', None)

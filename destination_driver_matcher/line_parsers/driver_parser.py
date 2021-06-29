@@ -1,5 +1,6 @@
 
 class DriverParser:
+    """Parses driver information from str"""
     def __init__(self):
         pass
 
