@@ -12,10 +12,6 @@ class Address:
         """
         self._parsed_address = parsed_address
 
-    # @property
-    # def street_name(self):
-    #     return self._street_name
-
     @property
     def street_name(self):
         return self._parsed_address.get("street_name", None)

@@ -2,10 +2,20 @@
 from models.address import Address
 from models.driver import Driver
 
-
 class FileReader():
+    """
+    Reads file line by line and returns a list of objects
+    """
     supported_consumers = {'Address': Address, 'Driver': Driver}
     def __init__(self, line_parser, parsed_line_consumer):
+        """
+        params:
+        line_parser: The function called to parse string.
+            function template is: def line_parser(line: str) -> dict
+            output dict() should contain parsed results
+        parsed_line_consumer: constructor that consumes the output from line_parser() and creates an object.
+            currently only supports Address and Driver classes
+        """
         self._line_parser = line_parser
         self.failed_lines = []
         if parsed_line_consumer not in self.supported_consumers:

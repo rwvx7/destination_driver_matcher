@@ -22,7 +22,7 @@ class SuitabilityScorer:
             score = self.get_score_street_name_length_even(driver)
         else:
             score = self.get_score_street_name_length_odd(driver)
-        if self.hasCommonFactorsBesidesOne(destination.get_street_name_length(), driver.get_name_length()):
+        if self.has_common_factors_besides_one(destination.get_street_name_length(), driver.get_name_length()):
             score *= 1.5
         return score
 
@@ -32,6 +32,6 @@ class SuitabilityScorer:
     def get_score_street_name_length_odd(self, driver: Driver):
         return driver.get_num_consonants_in_name()
 
-    def hasCommonFactorsBesidesOne(self, num1, num2):
+    def has_common_factors_besides_one(self, num1, num2):
         return math.gcd(num1, num2) > 1
 
