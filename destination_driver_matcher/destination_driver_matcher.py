@@ -13,7 +13,7 @@ from suitability_scorer import SuitabilityScorer
 def run(filename_destinations, filename_drivers, is_brute_force = False):
     """Main function for the Driver Destination Matcher"""
     try:
-        logging.info("Reading Destination file")
+        logging.info("Reading Destinations file")
         address_parser = AddressParser()
         address_reader = FileReader(address_parser.parse, 'Address')
         destinations = address_reader.read_file(filename_destinations)
@@ -21,12 +21,12 @@ def run(filename_destinations, filename_drivers, is_brute_force = False):
         if len(address_reader.failed_lines) > 0:
             logging.warning(f"{len(address_reader.failed_lines)} shipping destinations failed to import")
 
-        logging.info("Reading Driver file")
+        logging.info("Reading Drivers file")
         driver_parser = DriverParser()
         driver_reader = FileReader(driver_parser.parse, 'Driver')
         drivers = driver_reader.read_file(filename_drivers)
         logging.info(f"num drivers read: {len(drivers)}; failed: {len(driver_reader.failed_lines)}")
-        if len(driver_reader.failed_lines) > 0 or len(address_reader.failed_lines) > 0:
+        if len(driver_reader.failed_lines) > 0:
             logging.warning(f"{len(driver_reader.failed_lines)} drivers failed to import")
 
         logging.info("Calculating suitability score for each driver for each destination")
