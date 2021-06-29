@@ -30,11 +30,13 @@ If you are running Ubuntu (preferably 20.04 or later), The following is a quick 
 Linux, MacOS, or Windows with the following installed:
 - Python3
 - Python3-pip
+
 Application was tested on Windows 10 WSL2 Ubuntu-20.04 with Python 3.8.5
 
 ### Ubuntu
 Python3 should already be installed by default. Run the following command in the bash terminal to confirm:
 `$ python3 --version`
+
 However, the Python Package Index tool (pip3) is not installed by default. You can install it by typing the follow in the bash terminal:
 `$ sudo apt install python3-pip`
 
@@ -52,20 +54,24 @@ The script `system_setup.sh` is prepared to help make the setup process easier. 
 ### Ubuntu
 To install virtualenv, run the following command:
 `$ pip3 install virtualenv`
+
 To create a virtual environment, run the following while in the project root directory:
 `$ virtualenv acme_env`
+
 A folder named 'acme_env' will be created in the current directory and python executables related to that python virtual environment will be stored there.
 To activate the virtualenv, run the following:
 `$ source acme_env/bin/activate`
+
 After the virtualenv is activated, packages installed using `pip` will only be available within that virtualenv. Now we can install the required packages by running:
 `$ pip install -r requirements.txt`
+
 To deactivate current virtualenv, run the following:
 `$ deactivate`
 
 ## Usage
 A few scripts have been provided to make running the application easier:
-`$ ./run_application.sh` runs the application
-`$ ./run_tests.sh` runs the unit tests associated with the application
+- `$ ./run_application.sh` runs the application
+- `$ ./run_tests.sh` runs the unit tests associated with the application
 
 To run the application manually, Do the following:
 1. Activate virtualenv: `$ source acme_env/bin/activate`
