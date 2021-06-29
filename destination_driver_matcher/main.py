@@ -38,6 +38,7 @@ def main():
 
     is_brute_force = args.brute_force
 
+    print()
     print(f"using files:")
     print(f"shipping destinations: {filename_destinations}")
     print(f"drivers:               {filename_drivers}")
