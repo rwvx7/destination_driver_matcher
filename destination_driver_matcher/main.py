@@ -11,26 +11,24 @@ def main():
     - Logging setup
     - Ask for user input when needed
     """
-    parser = argparse.ArgumentParser(description="Acme Inc driver destination scheduler")
-    parser.add_argument("--destinations", help="filename containing list of shipping destinations")
-    parser.add_argument("--drivers", help="filename containing list of drivers")
-    parser.add_argument("--log", help="set log level. must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL")
+    parser = argparse.ArgumentParser(description="Acme Inc destination driver matcher")
+    parser.add_argument("--destinations", help="filename containing list of shipping destinations. This argument is ignored unless drivers file is also provided via --drivers")
+    parser.add_argument("--drivers", help="filename containing list of drivers. This argument is ignored unless destinations file is also provided via --destinations")
+    parser.add_argument("--log", help="Set log level. Must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL. Default is WARNING", default="WARNING")
     parser.add_argument("-b", "--brute-force", help="use brute force algorithm instead", action="store_true")
     args = parser.parse_args()
 
-    loglevel = 'WARNING'
-    if (args.log == 'DEBUG'
-        or args.log == 'INFO'
-        or args.log == 'WARNING'
-        or args.log == 'ERROR'
-        or args.log == 'CRITICAL'):
-        loglevel = args.log
+    loglevel = args.log.upper()
+    if (loglevel != 'DEBUG'
+        and loglevel != 'INFO'
+        and loglevel != 'WARNING'
+        and loglevel != 'ERROR'
+        and loglevel != 'CRITICAL'):
+        loglevel = 'WARNING'
     log_setup(loglevel)
 
     filename_destinations = args.destinations
     filename_drivers = args.drivers
-    # filename_destinations = "../data/destinations3.txt"
-    # filename_drivers = "../data/drivers3.txt"
 
     if filename_destinations == None or filename_drivers == None:
         filename_destinations = input("Enter filename for shipping destinations: ")
@@ -42,9 +40,8 @@ def main():
     print(f"using files:")
     print(f"shipping destinations: {filename_destinations}")
     print(f"drivers:               {filename_drivers}")
-    print(f"Use brute force: {is_brute_force}")
 
-    run(filename_destinations, filename_drivers)
+    run(filename_destinations, filename_drivers, is_brute_force)
 
 
 def log_setup(loglevel: str):
