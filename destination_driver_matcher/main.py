@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--destinations", help="filename containing list of shipping destinations")
     parser.add_argument("--drivers", help="filename containing list of drivers")
     parser.add_argument("--log", help="set log level. must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL")
-    # parser.add_argument("-v", "--verbose", help="print logs to stderr", action="store_true")
+    parser.add_argument("-b", "--brute-force", help="use brute force algorithm instead", action="store_true")
     args = parser.parse_args()
 
     loglevel = 'WARNING'
@@ -36,9 +36,12 @@ def main():
         filename_destinations = input("Enter filename for shipping destinations: ")
         filename_drivers = input("Enter filename for drivers: ")
 
+    is_brute_force = args.brute_force
+
     print(f"using files:")
     print(f"shipping destinations: {filename_destinations}")
     print(f"drivers:               {filename_drivers}")
+    print(f"Use brute force: {is_brute_force}")
 
     run(filename_destinations, filename_drivers)
 

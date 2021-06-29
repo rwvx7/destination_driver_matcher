@@ -10,7 +10,7 @@ from models.driver import Driver
 from result_outputer import ResultOutputer
 from suitability_scorer import SuitabilityScorer
 
-def run(filename_destinations, filename_drivers):
+def run(filename_destinations, filename_drivers, is_brute_force = False):
     """Main function for the Driver Destination Matcher"""
     try:
         logging.info("Reading Destination file")
@@ -35,10 +35,8 @@ def run(filename_destinations, filename_drivers):
         logging.debug(f"cost matrix: {cost_matrix}")
 
         logging.info("Finding best matches between drivers and destinations")
-        hungarian = Hungarian(cost_matrix)
-        row_ind, col_ind, sum = hungarian.execute()
-        # brute_force = BruteForce(cost_matrix)
-        # row_ind, col_ind, sum = brute_force.execute()
+        algorithm = BruteForce(cost_matrix) if is_brute_force else Hungarian(cost_matrix)
+        row_ind, col_ind, sum = algorithm.execute()
 
         logging.info("Preparing results...")
         result_outputer = ResultOutputer(destinations, drivers)
