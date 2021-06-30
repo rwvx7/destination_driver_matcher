@@ -8,7 +8,8 @@ Suitability score is calculated based on the following:
 
 # Table of Content
 - [Application Overview](#application-overview)
-- [Ubuntu cheatsheet](#ubuntu-cheatsheet)
+- [Ubuntu Cheatsheet](#ubuntu-cheatsheet)
+- [MacOS Cheatsheet](#macos-cheatsheet)
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
 - [Usage](#usage)
@@ -23,19 +24,41 @@ The application does the following:
 4. To find the best shipping destination to driver pairs that maximize total suitability score, what needs to be solved is the [Linear Sum Assignment Problem](#linear-sum-assignment-problem). With the results from step 3, the application uses the scipy implementation of the Hungarian Algorithm to find the maximum suitability score and the best matches.
 5. Print results to screen.
 
-This application was tested on Windows 10 WSL2 running Ubuntu-20.04 with Python 3.8.5. However, it should work on Windows 10 natively and MacOS as well.
+This application was tested on Windows 10 WSL2 running Ubuntu-20.04 with Python 3.8.5 and MacOS Big Sur. However, it should work on Windows 10 natively and other Linux distros as well.
 
 ## Ubuntu Cheatsheet
-If you are running Ubuntu (preferably 20.04 or later), The following is a quick run down of commands and scripts to complete the prerequisites, setup, and usage steps. The scripts have not been tested on other operating systems.
+If you are running Ubuntu (preferably 20.04 or later), The following is a quick run down of commands and scripts to complete the prerequisites, setup, and usage steps.
 1. `$ sudo apt install python3-pip`
 2. `$ pip3 install virtualenv`
-3. With the project root directory as the current working directory, run the system_setup.sh script: `$ ./system_setup.sh`
-4. Run `$ ./run_tests.sh` to run the unit tests
-5. Run:
+3. `$ git clone https://github.com/rwvx7/destination_driver_matcher.git` to clone this project to your machine.
+4. `$ cd destination_driver_matcher` to make project root directory your current working directory.
+4. With the project root directory as the current working directory, run the system_setup.sh script: `$ ./system_setup.sh`. This script has not been tested on other operating systems.
+5. Run `$ ./run_tests.sh` to run the unit tests
+6. Run:
 ```
 $ source acme_env/bin/activate
 $ cd destination_driver_matcher
-$ ./run_application.sh
+$ python main.py
+```
+to run the application
+
+## MacOS Cheatsheet
+The following is a quick run down of commands and scripts to complete the prerequisites, setup, and usage steps for MacOS (Tested on MacOS Big Sur). This guide uses the Python3 installation installed from Homebrew.
+1. Install [Homebrew](https://brew.sh/)
+2. `$ brew update && brew upgrade` to upgrade to newest version of Homebrew.
+3. `$ brew install python3` to install Python3 and pip3
+4. `$ git clone https://github.com/rwvx7/destination_driver_matcher.git` to clone this project to your machine.
+5. `$ cd destination_driver_matcher` to make project root directory your current working directory.
+6. `$ pip3 install virtualenv` to install virtualenv
+7. `$ virtualenv acme_env` to create a python virtual environment named `acme_env`
+8. `$ source acme_env/bin/activate` to start virtualenv
+9. `$ pip install -r requirements.txt` to install required packages
+10. Run `$ ./run_tests.sh` to run the unit tests.
+11. Run:
+```
+$ source acme_env/bin/activate
+$ cd destination_driver_matcher
+$ python main.py
 ```
 to run the application
 
@@ -55,8 +78,9 @@ However, the Python Package Index tool (pip3) is not installed by default. You c
 
 ## Setup
 With the prerequisites met, the follow has to be done as setup before the application can run:
-1. Create and activate a python virtual environment (not required but highly recommended)
-2. run: `$ pip install -r requirements.txt` to install required python packages
+1. Clone or download the project from github.
+2. Create and activate a python virtual environment (not required but highly recommended)
+3. run: `$ pip install -r requirements.txt` to install required python packages
 
 Setting up a [python virtual environment](#python-virtual-environments) is recommended to run the application. [virtualenv](https://pypi.org/project/virtualenv/) is a popular tool for this.
 
@@ -123,13 +147,13 @@ Summary of steps to take:
 
 
 ## Useful Information
-### Python3 Guides
-- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#installing_python_3
-- https://realpython.com/installing-python/
 ### Linear Sum Assignment Problem
 - https://en.wikipedia.org/wiki/Hungarian_algorithm
 - https://brilliant.org/wiki/hungarian-matching/
 - https://brilliant.org/discussions/thread/intuition-behind-the-hungarian-algorithm/
+### Python3 Guides
+- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#installing_python_3
+- https://realpython.com/installing-python/
 ### Python virtual environments
 - https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe
 - https://python-docs.readthedocs.io/en/latest/dev/virtualenvs.html
